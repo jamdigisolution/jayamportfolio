@@ -573,6 +573,294 @@
             font-size: 14px;
         }
 
+
+/* ===== Enhanced Mobile UX ===== */
+@media (max-width: 768px) {
+    html { scroll-padding-top: 88px; }
+    body { width: 100%; overflow-x: hidden; }
+
+    header {
+        flex-direction: row;
+        padding: 10px 14px;
+        min-height: 68px;
+        gap: 10px;
+    }
+
+    .header-logo-img {
+        height: 40px;
+        max-width: 145px;
+    }
+
+    nav {
+        flex: 1;
+        min-width: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+
+    nav ul {
+        margin-top: 0;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 2px;
+        width: max-content;
+    }
+
+    nav ul li {
+        margin: 0;
+        flex: 0 0 auto;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 8px 9px;
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .hero {
+        min-height: 82vh;
+        padding: 105px 18px 45px;
+        background-position: center;
+    }
+
+    .hero-badge {
+        font-size: 10px;
+        padding: 6px 12px;
+        letter-spacing: 1px;
+        margin-bottom: 16px;
+    }
+
+    .hero h1 {
+        font-size: clamp(28px, 8.5vw, 38px);
+        line-height: 1.14;
+        letter-spacing: .3px;
+        margin-bottom: 16px;
+    }
+
+    .hero p {
+        font-size: 14px;
+        line-height: 1.65;
+        margin-bottom: 25px;
+        max-width: 520px;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 330px;
+        justify-content: center;
+        padding: 13px 20px;
+        font-size: 14px;
+    }
+
+    .clients-slider {
+        padding: 24px 0;
+    }
+
+    .clients-slider h3 {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+        padding: 0 18px;
+        margin-bottom: 18px;
+    }
+
+    .slide-track {
+        width: calc(150px * 34);
+        animation-duration: 34s;
+    }
+
+    .slide {
+        width: 150px;
+        padding: 0 12px;
+    }
+
+    .slide img {
+        max-height: 52px;
+    }
+
+    .services,
+    .reviews-section,
+    .contact {
+        padding: 65px 16px;
+    }
+
+    .section-badge {
+        font-size: 11px;
+        letter-spacing: 1.6px;
+    }
+
+    .section-title {
+        font-size: clamp(25px, 7.5vw, 31px);
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+        font-size: 14px;
+        line-height: 1.65;
+        margin-bottom: 35px;
+    }
+
+    .services-container,
+    .reviews-grid,
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .service-card {
+        border-radius: 14px;
+    }
+
+    .service-img-wrapper {
+        height: 185px;
+    }
+
+    .service-content {
+        padding: 27px 19px 22px;
+    }
+
+    .service-content h3 {
+        font-size: 19px;
+        margin-bottom: 9px;
+    }
+
+    .service-content p {
+        font-size: 13.5px;
+        line-height: 1.6;
+    }
+
+    .service-icon {
+        width: 44px;
+        height: 44px;
+        right: 17px;
+        bottom: -19px;
+        font-size: 17px;
+    }
+
+    .reviews-grid {
+        margin-top: 32px;
+    }
+
+    .review-card {
+        padding: 22px 19px;
+        border-radius: 14px;
+    }
+
+    .review-text {
+        font-size: 13.5px;
+        line-height: 1.65;
+        margin-bottom: 18px;
+    }
+
+    .client-avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    .client-info h4 { font-size: 14px; }
+    .client-info p { font-size: 11.5px; }
+
+    .call-card {
+        padding: 28px 18px;
+        border-radius: 18px;
+        margin-top: 24px;
+    }
+
+    .call-card h3 {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+
+    .call-card p {
+        font-size: 13px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .call-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 18px;
+        font-size: 16px;
+    }
+
+    footer {
+        padding: 55px 16px 25px;
+    }
+
+    .footer-container {
+        gap: 28px;
+        margin-bottom: 30px;
+    }
+
+    .footer-logo-img {
+        height: 46px;
+        max-width: 155px;
+    }
+
+    .footer-info p {
+        font-size: 13.5px;
+        line-height: 1.5;
+        align-items: flex-start;
+    }
+
+    .enquiry-form-card {
+        padding: 24px 17px;
+        border-radius: 16px;
+    }
+
+    .enquiry-form-card h3 {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+
+    .form-group {
+        margin-bottom: 13px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 13px 14px;
+        font-size: 14px;
+        border-radius: 9px;
+    }
+
+    .footer-bottom {
+        padding-top: 20px;
+        font-size: 12px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 390px) {
+    .header-logo-img {
+        height: 36px;
+        max-width: 125px;
+    }
+
+    nav ul li a {
+        padding: 7px 7px;
+        font-size: 11px;
+    }
+
+    .hero {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .service-img-wrapper {
+        height: 170px;
+    }
+}
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             header {
@@ -611,7 +899,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#reviews">Reviews</a></li>
-                <li><a href="https://docs.google.com/spreadsheets/d/168jVMYRrp2T_ZrVt-q7ebMoQCjUKTtWjweqZg5z6tfs/edit?gid=0#gid=0" target="_blank">Client Post</a></li>
+                <li><a href="https://drive.google.com" target="_blank">Client Post</a></li>
                 <li><a href="https://drive.google.com" target="_blank">Client Videos</a></li>
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
@@ -621,7 +909,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-badge"><i class="fas fa-bullseye"></i> 360° Media & Advertising Solutions</div>
-        <h1>Empower Your Brand With Trusted by Businesses. Built for Growth.</h1>
+        <h1>Empower Your Brand With Next-Gen Advertising</h1>
         <p>From High-Impact Bus Branding & Cinema Ads to Performance Digital Marketing & TV Media — We drive massive customer reach for your business.</p>
         <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Get Free Consultation</a>
     </section>
@@ -645,6 +933,7 @@
             <div class="slide"><img src="Niyaz.jpeg" alt="Niyaaz Enterprises"></div>
             <div class="slide"><img src="Pavan Tiles.jpeg" alt="Pavan Pipe Corporation"></div>
             <div class="slide"><img src="Raack.jpeg" alt="Raack Academy of Dance"></div>
+            <div class="slide"><img src="Rathna Paints.jpeg" alt="Rathna Stores & Paints"></div>
             <div class="slide"><img src="RathnaStoresandPaints.png" alt="Rathna Stores and Paints Logo"></div>
             <div class="slide"><img src="sschicken.jpeg" alt="SS Chicken"></div>
 
@@ -663,6 +952,7 @@
             <div class="slide"><img src="Niyaz.jpeg" alt="Niyaaz Enterprises"></div>
             <div class="slide"><img src="Pavan Tiles.jpeg" alt="Pavan Pipe Corporation"></div>
             <div class="slide"><img src="Raack.jpeg" alt="Raack Academy of Dance"></div>
+            <div class="slide"><img src="Rathna Paints.jpeg" alt="Rathna Stores & Paints"></div>
             <div class="slide"><img src="RathnaStoresandPaints.png" alt="Rathna Stores and Paints Logo"></div>
             <div class="slide"><img src="sschicken.jpeg" alt="SS Chicken"></div>
         </div>
@@ -790,7 +1080,7 @@
     <!-- REAL GOOGLE REVIEWS SECTION -->
     <section class="reviews-section" id="reviews">
         <span class="section-badge">Google Verified Testimonials</span>
-        <h2 class="section-title">Real Clients. Real Experiences</h2>
+        <h2 class="section-title">What Our Clients Say About Us</h2>
         <p class="section-subtitle">Real feedback from genuine clients and business leaders across Tamil Nadu who experienced high growth with JAM Digi Solutions / Jayam Ads Media.</p>
 
         <div class="reviews-grid">
@@ -996,8 +1286,8 @@
         <div class="call-card">
             <h3>Speak Directly With Our Media Expert</h3>
             <p>Click below to instantly redirect to a phone call with our team.</p>
-            <a href="tel:+91 99447 82567" class="call-btn">
-                <i class="fas fa-phone-volume"></i> Call +91 99447 82567
+            <a href="tel:+919876543210" class="call-btn">
+                <i class="fas fa-phone-volume"></i> Call +91 98765 43210
             </a>
         </div>
     </section>
@@ -1007,20 +1297,16 @@
         <div class="footer-container">
             <div class="footer-info">
                 <img src="jamdigisolution.png" alt="JAM Digi Solutions Logo" class="footer-logo-img">
-                <h4>Ready to Make Your Brand Impossible to Ignore?</h4>
                 <p>Your trusted 360-degree media, bus branding, and digital marketing agency delivering proven business growth.</p>
                 <br>
-                <p><i class="fas fa-envelope"></i> jamdigisolutions@gmail.com</p>
+                <p><i class="fas fa-envelope"></i> contact@jamdigisolutions.com</p>
                 <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                <p>Located in: Matha Complex
-<p>Address: 34d / 1, LBS Rd, near Mahamaham Tank, Anna Nagar, Kumbakonam, Tamil Nadu 612001</p>
-                    </p>
                 <p><i class="fas fa-location-dot"></i> Tamil Nadu, India</p>
             </div>
 
             <div class="enquiry-form-card">
                 <h3>Send Us An Enquiry</h3>
-                <form action="https://formsubmit.co/jamdigisolutions@gmail.com" method="POST">
+                <form action="https://formsubmit.co/contact@jamdigisolutions.com" method="POST">
                     <div class="form-group">
                         <input type="text" name="Name" placeholder="Your Name / Business Name" required>
                     </div>
