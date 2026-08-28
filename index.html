@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JAM Digi Solutions | Media & Advertising Portfolio</title>
-<!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 /* Global Reset & Base Styles */
@@ -22,14 +21,14 @@ body {
     overflow-x: hidden;
 }
 
-/* Glassmorphic Header Navigation - Desktop Layout Preserved Everywhere */
+/* Glassmorphic Mobile-Friendly Header Navigation */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: rgba(11, 15, 25, 0.95);
-    padding: 12px 4%;
+    padding: 10px 4%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,22 +45,28 @@ header {
     flex-shrink: 0;
 }
 .header-logo-img {
-    height: 40px;
+    height: 38px;
     width: auto;
     object-fit: contain;
     background: #ffffff;
     padding: 4px 8px;
     border-radius: 8px;
 }
+nav {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+nav::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
 nav ul {
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: nowrap;
-}
-nav ul li {
-    margin-left: 0;
     white-space: nowrap;
 }
 nav ul li a {
@@ -72,17 +77,18 @@ nav ul li a {
     transition: all 0.3s ease;
     padding: 6px 10px;
     border-radius: 6px;
+    display: inline-block;
 }
 nav ul li a:hover {
     color: #ffffff;
     background: rgba(255, 51, 102, 0.15);
 }
 
-/* Hero Section */
+/* Hero Section with Uploaded Neon Graphic Background */
 .hero {
     min-height: 92vh;
-    background: linear-gradient(rgba(11, 15, 25, 0.82), rgba(11, 15, 25, 0.94)),
-                url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+    background: linear-gradient(rgba(11, 15, 25, 0.65), rgba(11, 15, 25, 0.85)),
+                url('watermarked_img_4016815629601367700.png') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,8 +99,8 @@ nav ul li a:hover {
     position: relative;
 }
 .hero-badge {
-    background: rgba(255, 51, 102, 0.15);
-    border: 1px solid rgba(255, 51, 102, 0.4);
+    background: rgba(255, 51, 102, 0.25);
+    border: 1px solid rgba(255, 51, 102, 0.5);
     color: #ff3366;
     padding: 6px 18px;
     border-radius: 30px;
@@ -112,7 +118,7 @@ nav ul li a:hover {
     letter-spacing: 1px;
     max-width: 900px;
     line-height: 1.2;
-    background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -120,7 +126,8 @@ nav ul li a:hover {
     font-size: 18px;
     max-width: 750px;
     margin-bottom: 35px;
-    color: #94a3b8;
+    color: #e2e8f0;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 .btn {
     display: inline-flex;
@@ -197,7 +204,7 @@ nav ul li a:hover {
 
 /* Services Section */
 .services {
-    padding: 100px 6%;
+    padding: 90px 6%;
     background: #0b0f19;
     text-align: center;
 }
@@ -211,23 +218,23 @@ nav ul li a:hover {
     margin-bottom: 10px;
 }
 .section-title {
-    font-size: 40px;
+    font-size: 38px;
     font-weight: 800;
     margin-bottom: 15px;
     color: #ffffff;
 }
 .section-subtitle {
     color: #94a3b8;
-    margin-bottom: 60px;
-    font-size: 17px;
+    margin-bottom: 50px;
+    font-size: 16px;
     max-width: 650px;
     margin-left: auto;
     margin-right: auto;
 }
 .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 .service-card {
     background: #111827;
@@ -242,13 +249,13 @@ nav ul li a:hover {
     position: relative;
 }
 .service-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     border-color: rgba(255, 51, 102, 0.4);
     box-shadow: 0 20px 40px rgba(255, 51, 102, 0.15);
 }
 .service-img-wrapper {
     position: relative;
-    height: 220px;
+    height: 200px;
     overflow: hidden;
     background: #1e293b;
 }
@@ -266,7 +273,7 @@ nav ul li a:hover {
     position: absolute;
     top: 15px;
     left: 15px;
-    background: rgba(11, 15, 25, 0.75);
+    background: rgba(11, 15, 25, 0.85);
     backdrop-filter: blur(8px);
     color: #ff3366;
     padding: 4px 12px;
@@ -279,129 +286,39 @@ nav ul li a:hover {
 }
 .service-icon {
     position: absolute;
-    bottom: -22px;
-    right: 22px;
+    bottom: -20px;
+    right: 20px;
     background: linear-gradient(135deg, #ff3366 0%, #ff6b35 100%);
     color: #fff;
-    width: 50px;
-    height: 50px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 18px;
     box-shadow: 0 6px 15px rgba(255, 51, 102, 0.4);
     z-index: 2;
 }
 .service-content {
-    padding: 30px 24px 26px;
+    padding: 26px 20px 22px;
     flex-grow: 1;
 }
 .service-content h3 {
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     color: #f8fafc;
 }
 .service-content p {
     color: #94a3b8;
-    font-size: 14.5px;
-    line-height: 1.65;
-}
-
-/* CLIENT REVIEWS SECTION */
-.reviews-section {
-    padding: 90px 6%;
-    background: #070a11;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 50px;
-}
-.review-card {
-    background: rgba(17, 24, 39, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 16px;
-    padding: 28px;
-    text-align: left;
-    position: relative;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.review-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(255, 51, 102, 0.3);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    background: rgba(17, 24, 39, 0.95);
-}
-.quote-icon {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 28px;
-    color: rgba(255, 51, 102, 0.2);
-}
-.google-verified {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    color: #38bdf8;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-.stars {
-    color: #ffb703;
-    font-size: 14px;
-    margin-bottom: 15px;
-    display: flex;
-    gap: 4px;
-}
-.review-text {
-    color: #cbd5e1;
     font-size: 14px;
     line-height: 1.6;
-    margin-bottom: 22px;
-    font-style: italic;
-}
-.client-profile {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 16px;
-}
-.client-avatar {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ff3366, #ff6b35);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 18px;
-}
-.client-info h4 {
-    color: #f8fafc;
-    font-size: 15px;
-    font-weight: 700;
-}
-.client-info p {
-    color: #64748b;
-    font-size: 12.5px;
 }
 
 /* Contact Section */
 .contact {
-    padding: 90px 6%;
+    padding: 80px 6%;
     background: #0b0f19;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -409,30 +326,31 @@ nav ul li a:hover {
 .call-card {
     background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(17, 24, 39, 0.8) 100%);
     border: 1px solid rgba(37, 211, 102, 0.3);
-    max-width: 700px;
-    margin: 30px auto 0;
-    padding: 40px;
-    border-radius: 24px;
+    max-width: 650px;
+    margin: 20px auto 0;
+    padding: 35px 20px;
+    border-radius: 20px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 .call-card h3 {
-    font-size: 24px;
+    font-size: 22px;
     color: #ffffff;
     margin-bottom: 10px;
 }
 .call-card p {
     color: #94a3b8;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    font-size: 14px;
 }
 .call-btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     background: #25d366;
     color: #fff;
-    padding: 16px 42px;
+    padding: 14px 34px;
     border-radius: 50px;
-    font-size: 19px;
+    font-size: 17px;
     text-decoration: none;
     font-weight: 800;
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
@@ -440,107 +358,111 @@ nav ul li a:hover {
 }
 .call-btn:hover {
     background: #1ebc57;
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+    transform: scale(1.03);
 }
 
-/* Footer & Form */
+/* Footer Section */
 footer {
     background: #05070c;
     color: #fff;
-    padding: 80px 6% 30px;
+    padding: 60px 6% 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .footer-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 50px;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
 }
 .footer-logo-img {
-    height: 52px;
+    height: 48px;
     width: auto;
     object-fit: contain;
     background: #ffffff;
     padding: 5px 12px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     display: inline-block;
 }
 .footer-info p {
     color: #94a3b8;
-    margin-bottom: 16px;
-    font-size: 15px;
+    margin-bottom: 14px;
+    font-size: 14px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 .footer-info i {
     color: #ff3366;
-    font-size: 16px;
+    font-size: 15px;
 }
 .enquiry-form-card {
     background: #0f172a;
-    padding: 35px;
-    border-radius: 20px;
+    padding: 30px 24px;
+    border-radius: 18px;
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 .enquiry-form-card h3 {
-    margin-bottom: 20px;
-    font-size: 22px;
+    margin-bottom: 18px;
+    font-size: 20px;
     color: #ffffff;
 }
 .form-group {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 .form-group input, .form-group textarea {
     width: 100%;
-    padding: 14px 18px;
+    padding: 12px 16px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: #0b0f19;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 8px;
     outline: none;
-    font-size: 14.5px;
+    font-size: 14px;
     transition: 0.3s;
 }
 .form-group input:focus, .form-group textarea:focus {
     border-color: #ff3366;
-    box-shadow: 0 0 12px rgba(255, 51, 102, 0.25);
+    box-shadow: 0 0 10px rgba(255, 51, 102, 0.25);
 }
 .footer-bottom {
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 25px;
+    padding-top: 20px;
     color: #64748b;
-    font-size: 14px;
+    font-size: 13px;
 }
 
-/* Small Screen Adjustments (Forcing Horizontal Header Scroll if Screen is Ultra Small) */
-@media (max-width: 600px) {
-    nav ul {
-        overflow-x: auto;
-        padding-bottom: 4px;
-    }
-    nav ul li a {
-        font-size: 11px;
-        padding: 4px 6px;
+/* Media Queries for Responsive Mobile Adjustments */
+@media (max-width: 768px) {
+    header {
+        padding: 8px 3%;
     }
     .header-logo-img {
         height: 32px;
     }
+    nav ul li a {
+        font-size: 11px;
+        padding: 4px 7px;
+    }
+    .hero {
+        padding-top: 100px;
+        min-height: 80vh;
+    }
     .hero h1 {
-        font-size: 26px;
+        font-size: 24px;
     }
     .hero p {
-        font-size: 14px;
+        font-size: 13.5px;
+    }
+    .section-title {
+        font-size: 28px;
     }
 }
 </style>
 </head>
 <body>
 
-<!-- Header Navigation with Desktop Style Layout Everywhere -->
 <header>
     <a href="#home" class="logo">
         <img src="jamdigisolution.png" alt="JAM Digi Solutions Logo" class="header-logo-img">
@@ -549,7 +471,6 @@ footer {
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#reviews">Reviews</a></li>
             <li><a href="https://docs.google.com/spreadsheets/d/168jVMYRrp2T_ZrVt-q7ebMoQCjUKTtWjweqZg5z6tfs/edit?gid=0#gid=0" target="_blank">Client Post</a></li>
             <li><a href="https://drive.google.com" target="_blank">Client Videos</a></li>
             <li><a href="#contact">Contact Us</a></li>
@@ -557,15 +478,13 @@ footer {
     </nav>
 </header>
 
-<!-- Hero Section -->
 <section class="hero" id="home">
-    <div class="hero-badge"><i class="fas fa-bullseye"></i> 360° Media & Advertising Solutions</div>
-    <h1>Empower Your Brand With Trusted by Businesses. Built for Growth.</h1>
+    <div class="hero-badge"><i class="fas fa-bullseye"></i> 360° MEDIA & ADVERTISING SOLUTIONS</div>
+    <h1>EMPOWER YOUR BRAND WITH NEXT-GEN ADVERTISING</h1>
     <p>From High-Impact Bus Branding & Cinema Ads to Performance Digital Marketing & TV Media — We drive massive customer reach for your business.</p>
     <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Get Free Consultation</a>
 </section>
 
-<!-- Dynamic Client Logo Auto Scroll Section -->
 <div class="clients-slider">
     <h3>Trusted By Growing Brands & Enterprises</h3>
     <div class="slide-track">
@@ -586,7 +505,6 @@ footer {
         <div class="slide"><img src="RathnaStoresandPaints.png" alt="Rathna Stores and Paints Logo"></div>
         <div class="slide"><img src="sschicken.jpeg" alt="SS Chicken"></div>
         
-        <!-- Duplicate Set for Continuous Infinite Loop -->
         <div class="slide"><img src="Apollo dental.jpeg" alt="Apollo Dental"></div>
         <div class="slide"><img src="Auricle.jpeg" alt="Auricle Hearing Care"></div>
         <div class="slide"><img src="Banu.jpeg" alt="Banu Dental Care"></div>
@@ -606,7 +524,6 @@ footer {
     </div>
 </div>
 
-<!-- Services Section -->
 <section class="services" id="services">
     <span class="section-badge">What We Do</span>
     <h2 class="section-title">Our Core Advertising & Media Services</h2>
@@ -723,199 +640,25 @@ footer {
     </div>
 </section>
 
-<!-- REAL GOOGLE REVIEWS SECTION -->
-<section class="reviews-section" id="reviews">
-    <span class="section-badge">Google Verified Testimonials</span>
-    <h2 class="section-title">Real Clients. Real Experiences</h2>
-    <p class="section-subtitle">Real feedback from genuine clients and business leaders across Tamil Nadu who experienced high growth with JAM Digi Solutions / Jayam Ads Media.</p>
-
-    <div class="reviews-grid">
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"We are extremely happy with the theatre advertisement created by Jayam Ads Media. Under the leadership of Mr. C. Karunakaran, the team showcased exceptional creativity, professionalism, and attention to detail. The quality of work exceeded our expectations."</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">S</div>
-                <div class="client-info">
-                    <h4>K.S. Sivabharathi</h4>
-                    <p>Siva Steel Industries (Kuttalam & Mayiladuthurai)</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Jayam ads Media Mr. Karunakaran is a well experienced person in this industry. Also friendly approach, cost effective promotion activities, Info Bus, Digital marketing etc. Highly recommended to all entrepreneurs to get your brand promotional activities done."</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">B</div>
-                <div class="client-info">
-                    <h4>Bomrajan</h4>
-                    <p>Jaisri Krishna Jawli & Readymade Wholesale & Retail</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Excellent service from Jayam ads. As the proprietor of Triple C Menswear, I've had the pleasure of working with Jayam Ads, and I'm thoroughly impressed with their professionalism and quality of work. Highly recommended."</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">S</div>
-                <div class="client-info">
-                    <h4>Suriaravinth Suri</h4>
-                    <p>Proprietor, Triple C Menswear</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Jayam ads media is known for its professionalism. I have been associated with them for the last two years. I have got a great reach for my business by their social media marketing. Info bus is their unique product. Try it!"</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">K</div>
-                <div class="client-info">
-                    <h4>Kvell Skills</h4>
-                    <p>Local Guide</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Outstanding digital marketing firm! Boosted my business with effective strategies. Results-driven team, clear communication, and timely reports. If you want digital success, they're the go-to."</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">S</div>
-                <div class="client-info">
-                    <h4>Swaminathan V</h4>
-                    <p>Local Guide</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Best digital marketing company in Kumbakonam... Creative and innovative with experienced team members to handle the project in on time delivery... Highly recommended."</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">G</div>
-                <div class="client-info">
-                    <h4>Ganesh Kaliyamoorthy</h4>
-                    <p>Kumbakonam</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Best agency in Kumbakonam for your complete digital marketing solutions. They do all kind of marketing both offline and online marketing."</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">T</div>
-                <div class="client-info">
-                    <h4>Tarun Kumar</h4>
-                    <p>Local Guide</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"So good service and backup from team. Proper response with professional attitude. Assured result. Highly recommended..."</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">M</div>
-                <div class="client-info">
-                    <h4>Dr. M. Karthik PT</h4>
-                    <p>Physiotherapy Doctor</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"Jam Digi solution understand the client requirement and serve precisely what they needed. Good & excellent service giving 100% results according to it."</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">K</div>
-                <div class="client-info">
-                    <h4>Karthikayan Manikavasachagam</h4>
-                    <p>Local Guide</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="review-card">
-            <i class="fas fa-quote-right quote-icon"></i>
-            <div>
-                <span class="google-verified"><i class="fab fa-google"></i> Verified Google Review</span>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                <p class="review-text">"They provide various options for marketing through digital ads and other media with reasonable price. Trust worthy agency!"</p>
-            </div>
-            <div class="client-profile">
-                <div class="client-avatar">P</div>
-                <div class="client-info">
-                    <h4>Prasanna Pandurangan</h4>
-                    <p>Client Reviewer</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
 <section class="contact" id="contact">
     <span class="section-badge">Get In Touch</span>
     <h2 class="section-title">Ready To Grow Your Business?</h2>
     <div class="call-card">
         <h3>Speak Directly With Our Media Expert</h3>
         <p>Click below to instantly redirect to a phone call with our team.</p>
-        <a href="tel:+91 99447 82567" class="call-btn"><i class="fas fa-phone-volume"></i> Call +91 99447 82567</a>
+        <a href="tel:+919944782567" class="call-btn"><i class="fas fa-phone-volume"></i> Call +91 99447 82567</a>
     </div>
 </section>
 
-<!-- Footer Section -->
 <footer>
     <div class="footer-container">
         <div class="footer-info">
             <img src="jamdigisolution.png" alt="JAM Digi Solutions Logo" class="footer-logo-img">
-            <h4>Ready to Make Your Brand Impossible to Ignore?</h4>
             <p>Your trusted 360-degree media, bus branding, and digital marketing agency delivering proven business growth.</p>
             <br>
             <p><i class="fas fa-envelope"></i> jamdigisolutions@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-            <p>Located in: Matha Complex</p>
-            <p>Address: 34d / 1, LBS Rd, near Mahamaham Tank, Anna Nagar, Kumbakonam, Tamil Nadu 612001</p>
-            <p><i class="fas fa-location-dot"></i> Tamil Nadu, India</p>
+            <p><i class="fas fa-phone"></i> +91 99447 82567</p>
+            <p><i class="fas fa-location-dot"></i> Matha Complex, 34d / 1, LBS Rd, near Mahamaham Tank, Anna Nagar, Kumbakonam, Tamil Nadu 612001</p>
         </div>
 
         <div class="enquiry-form-card">
@@ -931,7 +674,7 @@ footer {
                     <input type="tel" name="Phone" placeholder="Mobile / Phone Number" required>
                 </div>
                 <div class="form-group">
-                    <textarea name="Message" rows="4" placeholder="Select service or describe your requirements..." required></textarea>
+                    <textarea name="Message" rows="3" placeholder="Select service or describe your requirements..." required></textarea>
                 </div>
                 <button type="submit" class="btn" style="width: 100%; justify-content: center;"><i class="fas fa-paper-plane"></i> Submit Enquiry</button>
             </form>
