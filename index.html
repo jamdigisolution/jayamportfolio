@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JAM Digi Solutions | Media & Advertising Portfolio</title>
+<!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 /* Global Reset & Base Styles */
@@ -21,14 +22,14 @@ body {
     overflow-x: hidden;
 }
 
-/* Glassmorphic Header Navigation */
+/* Glassmorphic Header Navigation - Desktop Layout Preserved Everywhere */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: rgba(11, 15, 25, 0.95);
-    padding: 12px 6%;
+    padding: 12px 4%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,30 +43,34 @@ header {
     display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0;
 }
 .header-logo-img {
-    height: 48px;
+    height: 40px;
     width: auto;
     object-fit: contain;
     background: #ffffff;
-    padding: 4px 10px;
+    padding: 4px 8px;
     border-radius: 8px;
 }
 nav ul {
     display: flex;
     list-style: none;
     align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
 }
 nav ul li {
-    margin-left: 24px;
+    margin-left: 0;
+    white-space: nowrap;
 }
 nav ul li a {
     color: #cbd5e1;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     transition: all 0.3s ease;
-    padding: 6px 12px;
+    padding: 6px 10px;
     border-radius: 6px;
 }
 nav ul li a:hover {
@@ -73,7 +78,7 @@ nav ul li a:hover {
     background: rgba(255, 51, 102, 0.15);
 }
 
-/* Hero Section - UPDATED WITH CREATIVE DIGITAL MEDIA BG */
+/* Hero Section */
 .hero {
     min-height: 92vh;
     background: linear-gradient(rgba(11, 15, 25, 0.82), rgba(11, 15, 25, 0.94)),
@@ -100,7 +105,7 @@ nav ul li a:hover {
     margin-bottom: 20px;
 }
 .hero h1 {
-    font-size: 52px;
+    font-size: 48px;
     font-weight: 800;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -112,7 +117,7 @@ nav ul li a:hover {
     -webkit-text-fill-color: transparent;
 }
 .hero p {
-    font-size: 19px;
+    font-size: 18px;
     max-width: 750px;
     margin-bottom: 35px;
     color: #94a3b8;
@@ -221,7 +226,7 @@ nav ul li a:hover {
 }
 .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 32px;
 }
 .service-card {
@@ -313,7 +318,7 @@ nav ul li a:hover {
 }
 .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
     margin-top: 50px;
 }
@@ -394,7 +399,7 @@ nav ul li a:hover {
     font-size: 12.5px;
 }
 
-/* Contact & CTA Section */
+/* Contact Section */
 .contact {
     padding: 90px 6%;
     background: #0b0f19;
@@ -448,7 +453,7 @@ footer {
 }
 .footer-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 50px;
     margin-bottom: 50px;
 }
@@ -511,51 +516,31 @@ footer {
     font-size: 14px;
 }
 
-/* Mobile Responsive Optimization - ENHANCED FOR BETTER HEADER DISPLAY */
-@media (max-width: 768px) {
-    header {
-        position: relative;
-        flex-direction: column;
-        padding: 12px 4%;
-        gap: 10px;
-    }
-    .logo {
-        margin-bottom: 4px;
-    }
+/* Small Screen Adjustments (Forcing Horizontal Header Scroll if Screen is Ultra Small) */
+@media (max-width: 600px) {
     nav ul {
-        margin-top: 0;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-    }
-    nav ul li {
-        margin: 2px 4px;
+        overflow-x: auto;
+        padding-bottom: 4px;
     }
     nav ul li a {
-        font-size: 13px;
-        padding: 4px 8px;
+        font-size: 11px;
+        padding: 4px 6px;
     }
-    .hero {
-        padding-top: 60px;
-        min-height: auto;
+    .header-logo-img {
+        height: 32px;
     }
     .hero h1 {
-        font-size: 28px;
+        font-size: 26px;
     }
     .hero p {
-        font-size: 15px;
-    }
-    .section-title {
-        font-size: 28px;
-    }
-    .services-container, .reviews-grid {
-        grid-template-columns: 1fr;
+        font-size: 14px;
     }
 }
 </style>
 </head>
 <body>
 
+<!-- Header Navigation with Desktop Style Layout Everywhere -->
 <header>
     <a href="#home" class="logo">
         <img src="jamdigisolution.png" alt="JAM Digi Solutions Logo" class="header-logo-img">
@@ -572,6 +557,7 @@ footer {
     </nav>
 </header>
 
+<!-- Hero Section -->
 <section class="hero" id="home">
     <div class="hero-badge"><i class="fas fa-bullseye"></i> 360° Media & Advertising Solutions</div>
     <h1>Empower Your Brand With Trusted by Businesses. Built for Growth.</h1>
@@ -579,6 +565,7 @@ footer {
     <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Get Free Consultation</a>
 </section>
 
+<!-- Dynamic Client Logo Auto Scroll Section -->
 <div class="clients-slider">
     <h3>Trusted By Growing Brands & Enterprises</h3>
     <div class="slide-track">
@@ -599,6 +586,7 @@ footer {
         <div class="slide"><img src="RathnaStoresandPaints.png" alt="Rathna Stores and Paints Logo"></div>
         <div class="slide"><img src="sschicken.jpeg" alt="SS Chicken"></div>
         
+        <!-- Duplicate Set for Continuous Infinite Loop -->
         <div class="slide"><img src="Apollo dental.jpeg" alt="Apollo Dental"></div>
         <div class="slide"><img src="Auricle.jpeg" alt="Auricle Hearing Care"></div>
         <div class="slide"><img src="Banu.jpeg" alt="Banu Dental Care"></div>
@@ -618,6 +606,7 @@ footer {
     </div>
 </div>
 
+<!-- Services Section -->
 <section class="services" id="services">
     <span class="section-badge">What We Do</span>
     <h2 class="section-title">Our Core Advertising & Media Services</h2>
@@ -734,6 +723,7 @@ footer {
     </div>
 </section>
 
+<!-- REAL GOOGLE REVIEWS SECTION -->
 <section class="reviews-section" id="reviews">
     <span class="section-badge">Google Verified Testimonials</span>
     <h2 class="section-title">Real Clients. Real Experiences</h2>
@@ -902,6 +892,7 @@ footer {
     </div>
 </section>
 
+<!-- Contact Section -->
 <section class="contact" id="contact">
     <span class="section-badge">Get In Touch</span>
     <h2 class="section-title">Ready To Grow Your Business?</h2>
@@ -912,6 +903,7 @@ footer {
     </div>
 </section>
 
+<!-- Footer Section -->
 <footer>
     <div class="footer-container">
         <div class="footer-info">
