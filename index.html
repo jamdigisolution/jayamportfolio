@@ -1123,24 +1123,72 @@
                 <p><i class="fas fa-location-dot"></i> 34d / 1, LBS Rd, near Mahamaham Tank, Anna Nagar, Kumbakonam, Tamil Nadu 612001Tamil Nadu, India</p>
             </div>
 
-            <div class="enquiry-form-card">
-                <h3>Send Us An Enquiry</h3>
-                <form action="https://formsubmit.co/jamdigisolutions@gmail.com" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="Name" placeholder="Your Name / Business Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="Email" placeholder="Your Email Address" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="Phone" placeholder="Mobile / Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="Message" rows="4" placeholder="Select service or describe your requirements..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%; justify-content: center;"><i class="fas fa-paper-plane"></i> Submit Enquiry</button>
-                </form>
-            </div>
+           <div class="enquiry-form-card">
+    <h3>Send Us An Enquiry</h3>
+
+    <form action="https://formsubmit.co/jamdigisolutions@gmail.com" method="POST">
+
+        <!-- Email subject -->
+        <input type="hidden"
+               name="_subject"
+               value="New Enquiry - Jayam Ads Media">
+
+        <!-- Disable CAPTCHA -->
+        <input type="hidden"
+               name="_captcha"
+               value="false">
+
+        <!-- Prevent auto-response -->
+        <input type="hidden"
+               name="_template"
+               value="table">
+
+        <!-- Your name -->
+        <div class="form-group">
+            <input
+                type="text"
+                name="Name"
+                placeholder="Your Name / Business Name"
+                required>
+        </div>
+
+        <!-- Customer email -->
+        <div class="form-group">
+            <input
+                type="email"
+                name="Email"
+                placeholder="Your Email Address"
+                required>
+        </div>
+
+        <!-- Customer phone -->
+        <div class="form-group">
+            <input
+                type="tel"
+                name="Phone"
+                placeholder="Mobile / Phone Number"
+                required>
+        </div>
+
+        <!-- Customer message -->
+        <div class="form-group">
+            <textarea
+                name="Message"
+                rows="4"
+                placeholder="Select service or describe your requirements..."
+                required></textarea>
+        </div>
+
+        <button
+            type="submit"
+            class="btn"
+            style="width: 100%; justify-content: center;">
+            <i class="fas fa-paper-plane"></i>
+            Submit Enquiry
+        </button>
+
+    </form>
+</div>
         </div>
 
         <div class="footer-bottom">
