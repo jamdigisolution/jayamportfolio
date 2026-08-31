@@ -1201,13 +1201,6 @@
             bottom: 25px;
             right: 25px;
             z-index: 9999;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .jam-float-bot .bot-icon {
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -1218,10 +1211,13 @@
             color: #fff;
             font-size: 26px;
             box-shadow: 0 8px 25px rgba(255, 51, 102, 0.5);
-            position: relative;
+            cursor: pointer;
+            border: none;
+            position: fixed;
             animation: jamFloat 2.5s ease-in-out infinite;
         }
-        .jam-float-bot .bot-icon::before {
+
+        .jam-float-bot::before {
             content: '';
             position: absolute;
             width: 100%;
@@ -1231,132 +1227,205 @@
             animation: jamPulse 1.8s ease-out infinite;
             z-index: -1;
         }
-        .jam-float-bot .bot-label {
-            background: rgba(11, 15, 25, 0.9);
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            border: 1px solid rgba(255, 51, 102, 0.4);
-            white-space: nowrap;
-            opacity: 0;
-            transform: translateX(10px);
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-        .jam-float-bot:hover .bot-label {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .jam-float-bot:hover .bot-icon {
+
+        .jam-float-bot:hover {
             transform: scale(1.08);
         }
+
         @keyframes jamPulse {
             0% { transform: scale(1); opacity: 0.6; }
             100% { transform: scale(1.6); opacity: 0; }
         }
+
         @keyframes jamFloat {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-6px); }
         }
+
+        .jam-chat-box {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 320px;
+            max-width: 88vw;
+            background: #111827;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+            z-index: 9998;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .jam-chat-box.open {
+            display: flex;
+        }
+
+        .jam-chat-header {
+            background: linear-gradient(135deg, #ff3366 0%, #ff6b35 100%);
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+        }
+
+        .jam-chat-header .bot-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .jam-chat-header h4 {
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .jam-chat-header p {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        .jam-chat-close {
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .jam-chat-body {
+            padding: 16px;
+            max-height: 380px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .jam-bot-msg {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 10px 14px;
+            border-radius: 14px 14px 14px 4px;
+            font-size: 13px;
+            line-height: 1.6;
+            align-self: flex-start;
+            max-width: 90%;
+        }
+
+        .jam-faq-btn {
+            background: rgba(255, 51, 102, 0.1);
+            border: 1px solid rgba(255, 51, 102, 0.35);
+            color: #ff8fa3;
+            padding: 9px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .jam-faq-btn:hover {
+            background: rgba(255, 51, 102, 0.25);
+            color: #fff;
+        }
+
+        .jam-chat-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25d366;
+            color: #fff;
+            padding: 9px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 6px;
+            align-self: flex-start;
+        }
+
         @media (max-width: 768px) {
-            .jam-float-bot { bottom: 18px; right: 18px; }
-            .jam-float-bot .bot-icon { width: 52px; height: 52px; font-size: 22px; }
-            .jam-float-bot .bot-label { display: none; }
+            .jam-float-bot { bottom: 18px; right: 18px; width: 52px; height: 52px; font-size: 22px; }
+            .jam-chat-box { bottom: 85px; right: 12px; width: 90vw; }
         }
     </style>
 
-    <a href="https://wa.me/919942369111" target="_blank" class="jam-float-bot">
-        <span class="bot-label">Chat with JAM Bot 👋</span>
-        <div class="bot-icon">
-            <i class="fas fa-robot"></i>
+    <button class="jam-float-bot" id="jamBotToggle">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <div class="jam-chat-box" id="jamChatBox">
+        <div class="jam-chat-header">
+            <div class="bot-avatar"><i class="fas fa-robot"></i></div>
+            <div>
+                <h4>JAM Bot</h4>
+                <p>Online • Digital Agency Assistant</p>
+            </div>
+            <i class="fas fa-xmark jam-chat-close" id="jamChatClose"></i>
         </div>
-    </a>
+        <div class="jam-chat-body" id="jamChatBody">
+            <div class="jam-bot-msg">Vanakkam! 👋 Naan JAM Bot. Unga business ku evlo help pannalam nu kேளுங்க — kீழே iruka questions la edhavadhu select pannunga.</div>
+            <button class="jam-faq-btn" data-q="services">Neenga enna services pannuveenga?</button>
+            <button class="jam-faq-btn" data-q="busbranding">Bus / Outdoor Advertising eppadi?</button>
+            <button class="jam-faq-btn" data-q="digital">Digital Marketing pathi sollunga</button>
+            <button class="jam-faq-btn" data-q="video">Video / Cinema Ads pannuveengala?</button>
+            <button class="jam-faq-btn" data-q="pricing">Pricing evlo aagum?</button>
+            <button class="jam-faq-btn" data-q="other">Vera kேள்வி irukku</button>
+        </div>
+    </div>
 
-    <!-- JavaScript logic for Menu & Review Slider -->
     <script>
-        // Mobile Navigation Toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
+        const jamBotToggle = document.getElementById('jamBotToggle');
+        const jamChatBox = document.getElementById('jamChatBox');
+        const jamChatClose = document.getElementById('jamChatClose');
+        const jamChatBody = document.getElementById('jamChatBody');
 
-        mobileMenu.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+        jamBotToggle.addEventListener('click', () => {
+            jamChatBox.classList.toggle('open');
         });
 
-        function toggleMenu() {
-            if (window.innerWidth <= 768) {
-                navMenu.classList.remove('active');
-            }
-        }
-
-        // Reviews Carousel Logic
-        const slides = document.querySelectorAll('.reviews-section .review-card');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const dotsContainer = document.getElementById('dots-container');
-        let currentSlide = 0;
-        let slideInterval;
-
-        // Generate Dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active-dot');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
+        jamChatClose.addEventListener('click', () => {
+            jamChatBox.classList.remove('open');
         });
 
-        const dots = document.querySelectorAll('.dot');
+        const jamAnswers = {
+            services: "Naanga Bus Branding, Digital Marketing, Cinema Ads, TV Ads, Web Design, WhatsApp Marketing, Graphic Design — ellam full ah handle pannuvom! 🎯",
+            busbranding: "Info Bus & Outdoor Advertising na, unga brand ah city-wide ah bus body, billboards, LED displays mூலம் promote pannுவோம். High reach, cost effective. 🚌",
+            digital: "Meta Ads (FB/Insta), Google Ads, SEO, WhatsApp Marketing — ellam ROI focus panni result kொடுக்கும் மாதிரி பண்ணுவோம். 📈",
+            video: "Aama! Commercial video shoots, Cinema screen ads, Reels, motion graphics — professional team la pannுவோம். 🎬",
+            other: "No problem! Kீழே iruka Enquiry Form ah fill pannunga, unga requirement ku match aana details oda naanga team unga ku call pannுவாங்க shortly. 📝"
+        };
 
-        function updateSlides() {
-            slides.forEach((slide, index) => {
-                slide.classList.remove('active-slide');
-                dots[index].classList.remove('active-dot');
-                if (index === currentSlide) {
-                    slide.classList.add('active-slide');
-                    dots[index].classList.add('active-dot');
+        document.querySelectorAll('.jam-faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const key = btn.getAttribute('data-q');
+
+                if (key === 'pricing') {
+                    jamChatBody.innerHTML += `
+                        <div class="jam-bot-msg">Pricing unga business type & requirement based ah customize aagum — so exact ah sollanumna direct ah expert kூட pேசுங்க best result kிடைக்கும்! 📞</div>
+                        <a href="tel:+919942369111" class="jam-chat-cta"><i class="fas fa-phone-volume"></i> Contact Expert - 9942369111</a>
+                    `;
+                } else if (key === 'other') {
+                    jamChatBody.innerHTML += `
+                        <div class="jam-bot-msg">${jamAnswers.other}</div>
+                        <a href="#contact" class="jam-chat-cta"><i class="fas fa-pen"></i> Enquiry Form ku pogalam</a>
+                    `;
+                } else {
+                    jamChatBody.innerHTML += `<div class="jam-bot-msg">${jamAnswers[key]}</div>`;
                 }
+
+                jamChatBody.scrollTop = jamChatBody.scrollHeight;
             });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlides();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlides();
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlides();
-            resetTimer();
-        }
-
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetTimer();
         });
-
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetTimer();
-        });
-
-        function startTimer() {
-            slideInterval = setInterval(nextSlide, 4000); // 4 Seconds Auto Slide
-        }
-
-        function resetTimer() {
-            clearInterval(slideInterval);
-            startTimer();
-        }
-
-        // Start Auto Slider
-        startTimer();
     </script>
 </body>
 </html>
