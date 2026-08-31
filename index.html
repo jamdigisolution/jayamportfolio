@@ -1193,8 +1193,89 @@
             <p>&copy; 2026 JAM Digi Solutions. All Rights Reserved.</p>
         </div>
     </footer>
+       
+    <!-- JAM Bot Floating Button -->
+    <style>
+        .jam-float-bot {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .jam-float-bot .bot-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff3366 0%, #ff6b35 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 26px;
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.5);
+            position: relative;
+            animation: jamFloat 2.5s ease-in-out infinite;
+        }
+        .jam-float-bot .bot-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(255, 51, 102, 0.5);
+            animation: jamPulse 1.8s ease-out infinite;
+            z-index: -1;
+        }
+        .jam-float-bot .bot-label {
+            background: rgba(11, 15, 25, 0.9);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            border: 1px solid rgba(255, 51, 102, 0.4);
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .jam-float-bot:hover .bot-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .jam-float-bot:hover .bot-icon {
+            transform: scale(1.08);
+        }
+        @keyframes jamPulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.6); opacity: 0; }
+        }
+        @keyframes jamFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        @media (max-width: 768px) {
+            .jam-float-bot { bottom: 18px; right: 18px; }
+            .jam-float-bot .bot-icon { width: 52px; height: 52px; font-size: 22px; }
+            .jam-float-bot .bot-label { display: none; }
+        }
+    </style>
+
+    <a href="https://wa.me/919942369111" target="_blank" class="jam-float-bot">
+        <span class="bot-label">Chat with JAM Bot 👋</span>
+        <div class="bot-icon">
+            <i class="fas fa-robot"></i>
+        </div>
+    </a>
 
     <!-- JavaScript logic for Menu & Review Slider -->
+    <script>
     <script>
         // Mobile Navigation Toggle
         const mobileMenu = document.getElementById('mobile-menu');
