@@ -1201,8 +1201,8 @@
             bottom: 25px;
             right: 25px;
             z-index: 9999;
-            width: 60px;
-            height: 60px;
+            width: 62px;
+            height: 62px;
             border-radius: 50%;
             background: linear-gradient(135deg, #ff3366 0%, #ff6b35 100%);
             display: flex;
@@ -1213,7 +1213,6 @@
             box-shadow: 0 8px 25px rgba(255, 51, 102, 0.5);
             cursor: pointer;
             border: none;
-            position: fixed;
             animation: jamFloat 2.5s ease-in-out infinite;
         }
 
@@ -1244,10 +1243,10 @@
 
         .jam-chat-box {
             position: fixed;
-            bottom: 100px;
+            bottom: 105px;
             right: 25px;
-            width: 320px;
-            max-width: 88vw;
+            width: 340px;
+            max-width: 90vw;
             background: #111827;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 18px;
@@ -1273,14 +1272,14 @@
         }
 
         .jam-chat-header .bot-avatar {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.25);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         .jam-chat-header h4 {
@@ -1291,6 +1290,18 @@
         .jam-chat-header p {
             font-size: 11px;
             opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .jam-chat-header p::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            display: inline-block;
         }
 
         .jam-chat-close {
@@ -1302,7 +1313,7 @@
 
         .jam-chat-body {
             padding: 16px;
-            max-height: 380px;
+            max-height: 360px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
@@ -1317,7 +1328,18 @@
             font-size: 13px;
             line-height: 1.6;
             align-self: flex-start;
-            max-width: 90%;
+            max-width: 92%;
+        }
+
+        .jam-user-msg {
+            background: linear-gradient(135deg, #ff3366 0%, #ff6b35 100%);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 14px 14px 4px 14px;
+            font-size: 13px;
+            line-height: 1.6;
+            align-self: flex-end;
+            max-width: 92%;
         }
 
         .jam-faq-btn {
@@ -1349,37 +1371,77 @@
             font-size: 13px;
             font-weight: 700;
             text-decoration: none;
-            margin-top: 6px;
+            margin-top: 4px;
             align-self: flex-start;
         }
 
+        .jam-chat-input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background: #0f172a;
+        }
+
+        .jam-chat-input-row input {
+            flex: 1;
+            background: #0b0f19;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .jam-chat-input-row input:focus {
+            border-color: #ff3366;
+        }
+
+        .jam-chat-send {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff3366 0%, #ff6b35 100%);
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
         @media (max-width: 768px) {
-            .jam-float-bot { bottom: 18px; right: 18px; width: 52px; height: 52px; font-size: 22px; }
-            .jam-chat-box { bottom: 85px; right: 12px; width: 90vw; }
+            .jam-float-bot { bottom: 18px; right: 18px; width: 54px; height: 54px; font-size: 22px; }
+            .jam-chat-box { bottom: 88px; right: 12px; width: 92vw; }
         }
     </style>
 
     <button class="jam-float-bot" id="jamBotToggle">
-        <i class="fas fa-robot"></i>
+        <i class="fas fa-comment-dots"></i>
     </button>
 
     <div class="jam-chat-box" id="jamChatBox">
         <div class="jam-chat-header">
-            <div class="bot-avatar"><i class="fas fa-robot"></i></div>
+            <div class="bot-avatar"><i class="fas fa-headset"></i></div>
             <div>
-                <h4>JAM Bot</h4>
-                <p>Online • Digital Agency Assistant</p>
+                <h4>JAM Assistant</h4>
+                <p>Online</p>
             </div>
             <i class="fas fa-xmark jam-chat-close" id="jamChatClose"></i>
         </div>
         <div class="jam-chat-body" id="jamChatBody">
-            <div class="jam-bot-msg">Vanakkam! 👋 Naan JAM Bot. Unga business ku evlo help pannalam nu kேளுங்க — kீழே iruka questions la edhavadhu select pannunga.</div>
-            <button class="jam-faq-btn" data-q="services">Neenga enna services pannuveenga?</button>
-            <button class="jam-faq-btn" data-q="busbranding">Bus / Outdoor Advertising eppadi?</button>
-            <button class="jam-faq-btn" data-q="digital">Digital Marketing pathi sollunga</button>
-            <button class="jam-faq-btn" data-q="video">Video / Cinema Ads pannuveengala?</button>
-            <button class="jam-faq-btn" data-q="pricing">Pricing evlo aagum?</button>
-            <button class="jam-faq-btn" data-q="other">Vera kேள்வி irukku</button>
+            <div class="jam-bot-msg">Hello! 👋 I'm your JAM Digi Solutions assistant. Ask me a question below, or tap one of these quick options.</div>
+            <button class="jam-faq-btn" data-q="services">What services do you offer?</button>
+            <button class="jam-faq-btn" data-q="busbranding">How does Bus / Outdoor Advertising work?</button>
+            <button class="jam-faq-btn" data-q="digital">Tell me about Digital Marketing</button>
+            <button class="jam-faq-btn" data-q="video">Do you do Video / Cinema Ads?</button>
+            <button class="jam-faq-btn" data-q="pricing">How much does it cost?</button>
+            <button class="jam-faq-btn" data-q="other">I have another question</button>
+        </div>
+        <div class="jam-chat-input-row">
+            <input type="text" id="jamChatInput" placeholder="Type your question...">
+            <button class="jam-chat-send" id="jamChatSend"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
 
@@ -1388,6 +1450,8 @@
         const jamChatBox = document.getElementById('jamChatBox');
         const jamChatClose = document.getElementById('jamChatClose');
         const jamChatBody = document.getElementById('jamChatBody');
+        const jamChatInput = document.getElementById('jamChatInput');
+        const jamChatSend = document.getElementById('jamChatSend');
 
         jamBotToggle.addEventListener('click', () => {
             jamChatBox.classList.toggle('open');
@@ -1398,33 +1462,80 @@
         });
 
         const jamAnswers = {
-            services: "Naanga Bus Branding, Digital Marketing, Cinema Ads, TV Ads, Web Design, WhatsApp Marketing, Graphic Design — ellam full ah handle pannuvom! 🎯",
-            busbranding: "Info Bus & Outdoor Advertising na, unga brand ah city-wide ah bus body, billboards, LED displays mூலம் promote pannுவோம். High reach, cost effective. 🚌",
-            digital: "Meta Ads (FB/Insta), Google Ads, SEO, WhatsApp Marketing — ellam ROI focus panni result kொடுக்கும் மாதிரி பண்ணுவோம். 📈",
-            video: "Aama! Commercial video shoots, Cinema screen ads, Reels, motion graphics — professional team la pannுவோம். 🎬",
-            other: "No problem! Kீழே iruka Enquiry Form ah fill pannunga, unga requirement ku match aana details oda naanga team unga ku call pannுவாங்க shortly. 📝"
+            services: "We handle Bus Branding, Digital Marketing, Cinema Ads, TV Ads, Web Design, WhatsApp Marketing, and Graphic Design — a complete 360° advertising solution! 🎯",
+            busbranding: "Info Bus & Outdoor Advertising covers full bus body branding, highway billboards, and LED displays across high-traffic city routes — great reach at a low cost. 🚌",
+            digital: "We run Meta Ads (Facebook/Instagram), Google PPC, SEO, and WhatsApp Marketing — all performance-driven with real results. 📈",
+            video: "Yes! We produce commercial video shoots, cinema screen ads, Instagram Reels, and motion graphics with a professional team. 🎬",
+            pricing: "Pricing depends on your business type and requirements, so it's best to speak directly with our expert for an accurate quote. 📞",
+            other: "No problem! Please fill out the Enquiry Form below with your requirement, and our team will call you back shortly. 📝"
         };
+
+        function addBotMessage(html) {
+            const div = document.createElement('div');
+            div.className = 'jam-bot-msg';
+            div.innerHTML = html;
+            jamChatBody.appendChild(div);
+            jamChatBody.scrollTop = jamChatBody.scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const div = document.createElement('div');
+            div.className = 'jam-user-msg';
+            div.textContent = text;
+            jamChatBody.appendChild(div);
+            jamChatBody.scrollTop = jamChatBody.scrollHeight;
+        }
+
+        function respondWithKey(key) {
+            if (key === 'pricing') {
+                addBotMessage(jamAnswers.pricing);
+                const cta = document.createElement('a');
+                cta.href = 'tel:+919942369111';
+                cta.className = 'jam-chat-cta';
+                cta.innerHTML = '<i class="fas fa-phone-volume"></i> Contact Expert - 9942369111';
+                jamChatBody.appendChild(cta);
+            } else if (key === 'other') {
+                addBotMessage(jamAnswers.other);
+                const cta = document.createElement('a');
+                cta.href = '#contact';
+                cta.className = 'jam-chat-cta';
+                cta.innerHTML = '<i class="fas fa-pen"></i> Go to Enquiry Form';
+                jamChatBody.appendChild(cta);
+            } else {
+                addBotMessage(jamAnswers[key]);
+            }
+            jamChatBody.scrollTop = jamChatBody.scrollHeight;
+        }
 
         document.querySelectorAll('.jam-faq-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                const key = btn.getAttribute('data-q');
-
-                if (key === 'pricing') {
-                    jamChatBody.innerHTML += `
-                        <div class="jam-bot-msg">Pricing unga business type & requirement based ah customize aagum — so exact ah sollanumna direct ah expert kூட pேசுங்க best result kிடைக்கும்! 📞</div>
-                        <a href="tel:+919942369111" class="jam-chat-cta"><i class="fas fa-phone-volume"></i> Contact Expert - 9942369111</a>
-                    `;
-                } else if (key === 'other') {
-                    jamChatBody.innerHTML += `
-                        <div class="jam-bot-msg">${jamAnswers.other}</div>
-                        <a href="#contact" class="jam-chat-cta"><i class="fas fa-pen"></i> Enquiry Form ku pogalam</a>
-                    `;
-                } else {
-                    jamChatBody.innerHTML += `<div class="jam-bot-msg">${jamAnswers[key]}</div>`;
-                }
-
-                jamChatBody.scrollTop = jamChatBody.scrollHeight;
+                addUserMessage(btn.textContent);
+                respondWithKey(btn.getAttribute('data-q'));
             });
+        });
+
+        function matchKeyword(text) {
+            const t = text.toLowerCase();
+            if (t.includes('price') || t.includes('cost') || t.includes('charge') || t.includes('rate')) return 'pricing';
+            if (t.includes('bus') || t.includes('outdoor') || t.includes('billboard')) return 'busbranding';
+            if (t.includes('digital') || t.includes('social') || t.includes('seo') || t.includes('google') || t.includes('meta') || t.includes('facebook') || t.includes('instagram')) return 'digital';
+            if (t.includes('video') || t.includes('cinema') || t.includes('film') || t.includes('shoot') || t.includes('reel')) return 'video';
+            if (t.includes('service') || t.includes('offer') || t.includes('what do you')) return 'services';
+            return 'other';
+        }
+
+        function handleUserInput() {
+            const text = jamChatInput.value.trim();
+            if (!text) return;
+            addUserMessage(text);
+            const key = matchKeyword(text);
+            setTimeout(() => respondWithKey(key), 400);
+            jamChatInput.value = '';
+        }
+
+        jamChatSend.addEventListener('click', handleUserInput);
+        jamChatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleUserInput();
         });
     </script>
 </body>
