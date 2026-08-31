@@ -1201,19 +1201,25 @@
             bottom: 25px;
             right: 25px;
             z-index: 9999;
-            width: 62px;
-            height: 62px;
+            width: 68px;
+            height: 68px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff3366 0%, #ff6b35 100%);
+            background: #111827;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 26px;
-            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.5);
             cursor: pointer;
-            border: none;
+            border: 2px solid rgba(255, 51, 102, 0.5);
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.5);
             animation: jamFloat 2.5s ease-in-out infinite;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .jam-float-bot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .jam-float-bot::before {
@@ -1272,14 +1278,17 @@
         }
 
         .jam-chat-header .bot-avatar {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .jam-chat-header .bot-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .jam-chat-header h4 {
@@ -1418,18 +1427,19 @@
     </style>
 
     <button class="jam-float-bot" id="jamBotToggle">
-        <i class="fas fa-comment-dots"></i>
+        <img src="jambot.png" alt="JAM Bot">
     </button>
 
-    <div class="jam-chat-box" id="jamChatBox">
+           <div class="jam-chat-box" id="jamChatBox">
         <div class="jam-chat-header">
-            <div class="bot-avatar"><i class="fas fa-headset"></i></div>
+            <div class="bot-avatar"><img src="jambot.png" alt="JAM Bot"></div>
             <div>
                 <h4>JAM Assistant</h4>
                 <p>Online</p>
             </div>
             <i class="fas fa-xmark jam-chat-close" id="jamChatClose"></i>
         </div>
+
         <div class="jam-chat-body" id="jamChatBody">
             <div class="jam-bot-msg">Hello! 👋 I'm your JAM Digi Solutions assistant. Ask me a question below, or tap one of these quick options.</div>
             <button class="jam-faq-btn" data-q="services">What services do you offer?</button>
